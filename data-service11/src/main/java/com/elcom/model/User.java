@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 
@@ -43,10 +44,16 @@ public class User implements Serializable {
     private Date create_at;
 
     @PrePersist
-    private void onCreate()
-    {
-        create_at = new Date();
+    void preInsert() {
+        if (this.getCreate_at() == null)
+            this.setCreate_at(new Timestamp(System.currentTimeMillis()));
     }
+    @PreUpdate
+    void preUpdate() {
+        if (this.getCreate_at() == null)
+            this.setCreate_at(new Timestamp(System.currentTimeMillis()));
+    }
+
 
     public User() {
     }

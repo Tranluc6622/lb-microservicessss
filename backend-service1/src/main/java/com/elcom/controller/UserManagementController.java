@@ -5,6 +5,7 @@ import com.elcom.auth.LoginResponse;
 import com.elcom.auth.jwt.JwtTokenProvider;
 import com.elcom.model.*;
 import com.elcom.repository.UserRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
