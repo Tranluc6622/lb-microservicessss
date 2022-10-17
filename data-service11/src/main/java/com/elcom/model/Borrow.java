@@ -40,16 +40,6 @@ public class Borrow implements Serializable {
         borrowDate = new Date();
     }
 
-    @PrePersist
-    void preInsert() {
-        if (this.getBorrowDate() == null)
-            this.setReturnDate(new Timestamp(System.currentTimeMillis()));
-    }
-    @PreUpdate
-    void preUpdate() {
-        if (this.getBorrowDate() == null)
-            this.setReturnDate(new Timestamp(System.currentTimeMillis()));
-    }
 
     public Borrow() {
     }
