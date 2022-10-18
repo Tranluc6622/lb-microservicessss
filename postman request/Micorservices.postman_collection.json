@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "b6d29504-0a51-4904-95eb-edaf8916904e",
+		"name": "Micorservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21540504"
+	},
+	"item": [
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Get All Author",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookName\" : \"The Hobbie\",\r\n    \"firstLetter\" : \"T\",\r\n    \"authorID\" : \"JT\",\r\n    \"categoryID\" : \"FA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8412/api/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8412",
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Author By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8412/api/author/CD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8412",
+							"path": [
+								"api",
+								"author",
+								"CD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Author",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n    \"id\" : \"JT\",\r\n    \"authorName\" : \"J. R. R. Tolkien\"\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8412/api/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8412",
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete An Author",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Author Info",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete An Author By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Get All Book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book By ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Add A Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"bookName\" : \"The Hobbie\",\r\n    \"firstLetter\" : \"T\",\r\n     \"author\": {\r\n            \"id\": \"JT\",\r\n            \"authorName\": \"J. R. R. Tolkien\"\r\n        },\r\n    \"category\": {\r\n            \"id\": \"Fa\",\r\n            \"categoryName\": \"Fantastic\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8412/api/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8412",
+							"path": [
+								"api",
+								"book"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get All Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8412/api/author/CD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8412",
+							"path": [
+								"api",
+								"author",
+								"CD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"categoryID\": \"Adv\",\r\n        \"categoryName\": \"Adventure\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8412/api/category/Ca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8412",
+							"path": [
+								"api",
+								"category",
+								"Ca"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": []
+		}
+	]
+}
