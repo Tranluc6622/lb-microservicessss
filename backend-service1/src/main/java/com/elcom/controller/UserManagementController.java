@@ -53,9 +53,7 @@ public class UserManagementController {
             LOGGER.error(ex.toString());
             throw new ValidationException("Sai username/password.");
         }
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
         // Trả về jwt cho người dùng.
         String jwt = tokenProvider.generateToken((CustomUserDetails) authentication.getPrincipal());
         return new LoginResponse(jwt);
@@ -69,7 +67,6 @@ public class UserManagementController {
 //        String jwt = tokenProvider.generateToken((CustomUserDetails) authentication.getPrincipal());
 //        return new LoginResponse(jwt);
     }
-
     @GetMapping("/users")
     public List<User> getAllUser(){
         List<User> allUser = (List<User>) userRepository.findAll();

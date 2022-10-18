@@ -1,5 +1,15 @@
 create database test3;
 use test3;
+create table test3.borrow
+(
+	id bigint primary key auto_increment,
+    borrow_date datetime(6),
+    return_date datetime(6),
+    book_id binary(255),
+    constraint FK_book_id foreign key(book_id) references book(book_id),
+    users_id bigint,
+    constraint FK_users_id foreign key(users_id) references users(users_id)
+);
  create table test3.book
 (
 	id binary(255) primary key AUTO_INCREMENT,
@@ -52,7 +62,8 @@ values  ('2fb9a38c-4ab2-11ed-b878-0242ac120002' ,'Harry Potter And The Secret Ro
 --         (5,'Toi thay hoa vang tren co xanh','T','NA','Teen'),
 --         (6,'Ngoi khoc tren cay','N','NA','Teen'),
 --         (7,'The Green Miles','T','SK','De'); 
-        
+    
+    
 select * from test3.author;
 select * from test3.book;
 select * from test3.category;
