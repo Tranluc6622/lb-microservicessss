@@ -38,7 +38,7 @@ create table test3.author
 create table test3.category 
 (
 	id varchar(255) primary key,
-    category_name varchar(30) not null
+    category_name varchar(50) not null
 );
 insert into test3.author(id,author_name)
 values  ('NA','Nguyen Anh'),
