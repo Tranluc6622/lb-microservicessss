@@ -32,13 +32,13 @@ create table test3.users
 );
 create table test3.author
 (
-	id nvarchar(255) primary key,
-    author_name nvarchar(255) not null
+	id varchar(255) primary key,
+    author_name varchar(255) not null
 ); 
 create table test3.category 
 (
-	id nvarchar(255) primary key,
-    category_name nvarchar(30) not null
+	id varchar(255) primary key,
+    category_name varchar(30) not null
 );
 insert into test3.author(id,author_name)
 values  ('NA','Nguyen Anh'),
