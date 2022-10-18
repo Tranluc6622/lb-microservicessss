@@ -14,11 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.ValidationException;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,18 +38,36 @@ public class UserManagementController {
     private UserRepository userRepository;
 
 
-    @PostMapping("/login")
-    public LoginResponse authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public LoginResponse authenticateUser(@Valid @RequestBody LoginRequest loginRequest) throws ValidationException {
         // Xác thực từ username và password.
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
-                        loginRequest.getPassword()
-                )
-        );
+        Authentication authentication = null;
+        try {
+            authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            loginRequest.getUsername()
+                            ,loginRequest.getPassword()
+                    )
+            );
+        }catch(AuthenticationException ex) {
+            LOGGER.error(ex.toString());
+            throw new ValidationException("Sai username/password.");
+        }
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        // Trả về jwt cho người dùng.
         String jwt = tokenProvider.generateToken((CustomUserDetails) authentication.getPrincipal());
         return new LoginResponse(jwt);
+//        Authentication authentication = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        loginRequest.getUsername(),
+//                        loginRequest.getPassword()
+//                )
+//        );
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//        String jwt = tokenProvider.generateToken((CustomUserDetails) authentication.getPrincipal());
+//        return new LoginResponse(jwt);
     }
 
     @GetMapping("/users")
