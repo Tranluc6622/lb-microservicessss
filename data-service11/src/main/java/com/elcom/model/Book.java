@@ -1,13 +1,7 @@
 package com.elcom.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,10 +18,9 @@ public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Basic(optional = false)
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name ="id",updatable = false,nullable = false)
+    @Column(name ="id",updatable = false)
     private UUID id;
     @Column(name = "book_name")
     private String bookName;
@@ -35,13 +28,11 @@ public class Book implements Serializable {
     private String firstLetter;
 
     @ManyToOne
-    @JoinColumn(name = "author_id", nullable = false)
-    @JsonIgnore
+    @JoinColumn(name = "author_id")
     private Author author;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    @JsonIgnore
+    @JoinColumn(name = "category_id")
     private Category category;
 
     public Book() {

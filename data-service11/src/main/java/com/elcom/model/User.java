@@ -17,12 +17,11 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id",updatable = false,nullable = false)
     private Long id;
 
-    @Column(name = "user_name",nullable = false,unique = true)
+    @Column(name = "user_name",unique = true)
     private String username;
 
     @Column(name = "password",nullable = false)

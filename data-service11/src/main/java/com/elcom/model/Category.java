@@ -1,9 +1,6 @@
 package com.elcom.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -15,7 +12,7 @@ public class Category implements Serializable {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "category_name", length = 50, nullable = false, unique = true)
+    @Column(name = "category_name", length = 50, unique = true)
     private String categoryName;
 
     public Category() {

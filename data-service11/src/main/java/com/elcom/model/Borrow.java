@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -13,18 +12,17 @@ public class Borrow implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Basic(optional = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id",updatable = false,nullable = false)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_users", nullable = false)
+    @JoinColumn(name = "id_users")
     @JsonIgnore
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "id_book",nullable = false)
+    @JoinColumn(name = "id_book")
     @JsonIgnore
     private Book book;
 

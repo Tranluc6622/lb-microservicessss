@@ -9,10 +9,10 @@
         private static final long serialVersionUID = 1L;
 
         @Id
-        @Column(name = "id", nullable = false)
+        @Column(name = "id")
         private String id;
 
-        @Column(name = "author_name", length = 255, nullable = false,unique = true)
+        @Column(name = "author_name", length = 255)
         private String authorName;
 
         public Author() {
