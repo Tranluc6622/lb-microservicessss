@@ -1,6 +1,5 @@
 package com.elcom.security;
 
-//import com.elcom.auth.CustomUserDetails;
 import com.elcom.auth.CustomUserDetails;
 import com.elcom.model.User;
 import com.elcom.repository.UserRepository;
