@@ -14,10 +14,10 @@ import java.util.Collections;
 @Getter
 @Setter
 public class CustomUserDetails implements UserDetails {
-    private Long userId;
-    private String userName;
-    private String password;
-    private Collections authorities;
+//    private Long userId;
+//    private String userName;
+//    private String password;
+//    private Collections authorities;
 private User user;
 
     public CustomUserDetails() {

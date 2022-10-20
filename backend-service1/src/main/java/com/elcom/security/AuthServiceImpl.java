@@ -1,8 +1,7 @@
 package com.elcom.security;
 
 import com.elcom.auth.CustomUserDetails;
-import com.elcom.model.User;
-import com.elcom.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,8 +13,6 @@ import javax.transaction.Transactional;
 
 @Service
 public class AuthServiceImpl implements UserDetailsService {
-    @Autowired
-    private UserDetailsService userDetailsService;
 
     @Autowired
     private UserRepository userRepository;

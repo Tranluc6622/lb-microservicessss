@@ -1,12 +1,10 @@
     package com.elcom.model;
 
-    import javax.persistence.Basic;
-    import javax.persistence.Column;
-    import javax.persistence.Entity;
-    import javax.persistence.Id;
+    import javax.persistence.*;
     import java.io.Serializable;
 
     @Entity
+    @Table(name = "author")
     public class Author implements Serializable {
         private static final long serialVersionUID = 1L;
 

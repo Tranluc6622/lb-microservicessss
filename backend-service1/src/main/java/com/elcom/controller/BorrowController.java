@@ -38,7 +38,7 @@ public class BorrowController {
     @GetMapping("/findByBorrowerId")
     public List<Borrow> getByBorrowerId(@RequestParam(value = "id") Long id)
     {
-        return borrowRepository.findByBorrowerId(id);
+        return borrowRepository.findByUserId(id);
     }
     @GetMapping("/findByBookId")
     public List<Borrow> getByBookId(@RequestParam(value = "bookId") Long id)
